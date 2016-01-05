@@ -22,5 +22,5 @@ See [sample config file](etc/hipchat.config).
 - hooks should be placed in `'$site_path'/hooks` and executable
 
 ##License
-MIT License<br>
+Apache License<br>
 See [LICENSE](LICENSE) file.
