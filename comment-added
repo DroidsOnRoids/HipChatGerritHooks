@@ -1,0 +1,25 @@
+#!/usr/bin/env python3
+
+from email.utils import parseaddr
+from urllib.parse import quote
+
+import common
+
+args, ignored = common.parse_args()
+
+if args.isDraft == 'true' or (args.verifiedScore is not None):
+    exit()
+
+email_address, name = parseaddr(args.changeOwner)
+auth_token, section_config = common.parse_config(__file__)
+
+colors = {'-2': 'red', '-1': 'yellow', '1': 'purple', '2': 'green'}
+color = colors.get(args.codeReviewScore, 'grey')
+
+ownerMentionName = '@' + email_address.split('@')[0].replace('.', '')
+room = args.project + ' alerts'
+url = 'https://api.hipchat.com/v2/room/%s/notification?auth_token=%s' % (quote(room), quote(auth_token))
+message = '%s, change %s reviewed, score: %s' % (ownerMentionName, args.changeUrl, args.codeReviewScore)
+success_log_message = 'Comment message added to %s' % room
+
+common.perform_request(url, message, color, success_log_message)
