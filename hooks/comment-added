@@ -6,7 +6,7 @@ import common
 
 args, ignored = common.parse_args()
 
-if args.isDraft == 'true' or (args.verifiedScore is not None) or args.changeOwner == args.author:
+if args.isDraft == 'true' or args.codeReviewScore is None:
     exit()
 
 email_address, name = parseaddr(args.changeOwner)
