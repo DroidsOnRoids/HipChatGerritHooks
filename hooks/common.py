@@ -22,8 +22,8 @@ def parse_args():
     return parser.parse_known_args()
 
 
-def parse_config(file):
-    section = os.path.basename(file)
+def parse_config(hook_name):
+    section = os.path.basename(hook_name)
     config = configparser.ConfigParser()
     config.read(os.getenv('GERRIT_SITE') + '/etc/hipchat.config')
     section_config = config[section] if config.has_section(section) else {}

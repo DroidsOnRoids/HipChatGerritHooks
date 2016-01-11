@@ -1,6 +1,7 @@
-import unittest
 import sys
-import common
+import unittest
+
+from hooks import common
 
 
 class TestStringMethods(unittest.TestCase):
