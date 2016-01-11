@@ -3,8 +3,7 @@
 import re
 from email.utils import parseaddr
 from urllib.parse import quote
-
-from hooks import common
+import common
 
 args, ignored = common.parse_args()
 email_address, name = parseaddr(args.reviewer)
