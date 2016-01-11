@@ -14,7 +14,7 @@ def parse_args():
     parser.add_argument('--author')
     parser.add_argument('--is-draft', dest='isDraft')
     parser.add_argument('--Verified', dest='verifiedScore')
-    parser.add_argument('--Code-Review', dest='codeReviewScore', default='N/A')
+    parser.add_argument('--Code-Review', dest='codeReviewScore')
     parser.add_argument('--change-url', dest='changeUrl')
     parser.add_argument('--change-owner', dest='changeOwner')
     parser.add_argument('--change', dest='changeId')
