@@ -6,6 +6,7 @@ import json
 import os
 import urllib.error
 import urllib.request
+import re
 
 
 def parse_args():
@@ -39,3 +40,8 @@ def perform_request(url, message, success_log_message, color=None):
         print(success_log_message)
     except urllib.error.HTTPError as e:
         print(e.read())
+
+
+def is_email_matching(regex, email_address):
+    return re.match(regex, email_address) is not None
+

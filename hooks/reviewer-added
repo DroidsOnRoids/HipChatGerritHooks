@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-import re
 from email.utils import parseaddr
 from urllib.parse import quote
 import common
@@ -9,7 +8,7 @@ args, ignored = common.parse_args()
 email_address, name = parseaddr(args.reviewer)
 auth_token, section_config = common.parse_config(__file__)
 
-if re.match(section_config.get('ignored_emails', '(?!)'), email_address) is not None:
+if common.is_email_matching(section_config.get('ignored_emails'), email_address):
     exit()
 
 
