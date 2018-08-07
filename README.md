@@ -21,6 +21,6 @@ See [sample config file](etc/hipchat.config).
 - required API token scopes: `send_message`, `send_notification`
 - hooks should be placed in `'$site_path'/hooks` and executable
 
-##License
+## License
 Apache License<br>
 See [LICENSE](LICENSE) file.
